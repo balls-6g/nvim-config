@@ -1,7 +1,7 @@
 return {
     {
 	      "hanxi/catppuccin.nvim",
-        lazy = false,
+        lazy = true,
 	      name = "catppuccin",
 	      url = "https://bgithub.xyz/catppuccin/nvim",
 	      config = function()
@@ -26,7 +26,14 @@ return {
 		                }
 		            }
 	          })
-            vim.cmd.colorscheme 'catppuccin'
 	      end
     },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        opts = {},
+        config = function()
+            vim.cmd.colorscheme('tokyonight-moon')
+        end
+    }
 }
