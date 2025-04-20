@@ -6,7 +6,7 @@ return {
 	      dependencies = { 'nvim-tree/nvim-web-devicons' },
 	      config = function()
 	          require('lualine').setup({
-		            options = { theme = 'tokyonight-moon' },
+		            options = { theme = 'everforest' },
 	          })
 	      end
     }, -- 状态栏
@@ -98,7 +98,24 @@ return {
                     ["vim.lsp.util.convert_input_to_markdown_lines"] = true, -- 支持 Markdown
                 }
             }
-        }
+        },
+        config = function ()
+            require("noice").setup({
+                lsp = {
+                    override = {
+                        ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+                        ["vim.lsp.util.stylize_markdown"] = true,
+                        ["cmp.entry.get_documentation"] = true,
+                    },
+                },
+
+                presets = {
+                    long_message_to_split = true,
+                    lsp_doc_border = false,
+                    inc_rename = false,
+                }
+            })
+        end
     },
     {
         "rcarriga/nvim-notify",

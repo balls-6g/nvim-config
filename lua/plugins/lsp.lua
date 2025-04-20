@@ -11,7 +11,6 @@ return {
             require("go").setup()
         end,
         ft = { "go", "gomod" },
-        event = "CmdlineEnter",
         build = ':lua require("go.install").update_all_sync()'
     },
     {
@@ -37,7 +36,7 @@ return {
 	      "neovim/nvim-lspconfig",
 	      url = "https://bgithub.xyz/neovim/nvim-lspconfig",
         event = "User FileOpened",
-        config = function() 
+        config = function()
             local lsp = require("lspconfig")
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -65,9 +64,24 @@ return {
                     ['rust_analyzer'] = {
                         checOnsave = { command = "clippy" },
                         procMacro = { enabled = true },
+                        usePlaceHolders = true,
+                        autoFormmat = true,
                     }
                 }
             })
+
+            lsp.gopls.setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
+                cmd = { "gopls" },
+                ft = { "go", "gomod", "gowork", "gotmpl" },
+                settings = {
+                    gopls = {
+                        completeUnimported = true,
+                        usePlaceHolders = true,
+                    }
+                }
+            }
 
             vim.diagnostic.config({
                 virtual_text = {

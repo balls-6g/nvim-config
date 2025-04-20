@@ -26,14 +26,24 @@ return {
 		                }
 		            }
 	          })
+            -- vim.cmd.colorscheme('catppuccin')
 	      end
     },
     {
         "folke/tokyonight.nvim",
-        lazy = false,
+        lazy = true,
         opts = {},
         config = function()
-            vim.cmd.colorscheme('tokyonight-moon')
+            -- vim.cmd.colorscheme('tokyonight-moon')
+        end
+    },
+    {
+        "neanias/everforest-nvim",
+        lazy = true,
+        event = "VeryLazy",
+        config = function ()
+            require("everforest").setup()
+            vim.cmd.colorscheme('everforest')
         end
     }
 }

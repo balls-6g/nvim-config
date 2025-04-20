@@ -19,6 +19,13 @@ return {
         ft = { "c", "go", "rust", "lua", "markdown" },
         lazy = true,
 	      build = "TSUpdate",
+        opts = {
+            servers = {
+                gopls = {
+                    enabled = true,
+                }
+            }
+        },
 	      config = function()
 	          require('nvim-treesitter.configs').setup({
 		            -- 语言 
