@@ -266,4 +266,11 @@ return {
         dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
         opts = {},
     },
+    {
+        "ibhagwan/fzf-lua",
+        url = "https://bgithub.xyz/ibhagwan/fzf-lua",
+        config = function()
+            require('fzf-lua').setup()
+        end
+    }
 }

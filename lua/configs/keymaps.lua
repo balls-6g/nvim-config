@@ -1,5 +1,4 @@
 -- 主键为空格
-vim.g.mapleader = " "
 
 -- -------- 正常模式 -------- --
 -- 正常模式分屏
@@ -21,7 +20,6 @@ vim.keymap.set("n", ";", ":")
 -- 标签页切换
 vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>")
 vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>")
-vim.keymap.set("n", "<leader>x", ":bdelete<CR>")
 
 -- 切换是否透明
 vim.keymap.set("n", "<ESC>", ":TransparentToggle<CR>")
