@@ -72,9 +72,7 @@ nvim
 ```ps1
 # required
 Move-Item $env:LOCALAPPDATA\nvim $env:LOCALAPPDATA\nvim.bak
-
-# optional but recommended
-Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak
+# optional but recommended Move-Item $env:LOCALAPPDATA\nvim-data $env:LOCALAPPDATA\nvim-data.bak
 ```
 
 - Clone starter
@@ -90,4 +88,32 @@ Remove-Item $env:LOCALAPPDATA\nvim\.git --Rescurse -Force
 - And start neovim!
 ```ps1
 nvim
+```
+
+# Configuratuions
+---------------------
+This neovim config have already setup the config for go & rust,
+so you doesn't need to care about go and rust, 
+
+The plugins are all in ~/.config/nvim/lua/plugins/, and the customize plugins comes in 
+~/.config/nvim/lua/plugins/init.lua
+
+The plugins of lsp for diffrent langs are:
+
+## 
+
+## flutter
+---------------
+```lua
+return {
+    {
+        "nvim-flutter/flutter-tools.nvim",
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'stevearc/dressing.nvim'
+        }
+        ft = "dart",
+        config = true,
+    }
+}
 ```

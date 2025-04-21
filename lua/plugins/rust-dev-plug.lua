@@ -13,4 +13,10 @@ return {
         url = "https://bgithub.xyz/rust-lang/rust.vim",
         config = function () end
     },
+    {
+        "mrcjkb/rustaceanvim",
+        url = "https://bgithub.xyz/mrcjkb/rustaceanvim",
+        version = "^6",
+        ft = "rust"
+    }
 }

@@ -79,7 +79,7 @@ return {
                         pane = 2,
                         pane_gap = 4,
                         section = "terminal",
-                        cmd = "fastfetch",
+                        cmd = "htop",
                         height = 5,
                         padding = 1,
                       },
@@ -269,8 +269,9 @@ return {
     {
         "ibhagwan/fzf-lua",
         url = "https://bgithub.xyz/ibhagwan/fzf-lua",
-        event = { "VeryLazy" },
-        cmd = { "FzfLua" },
+        keys = {
+            { "<leader>fz", ":FzfLua<CR>", "use fzf" }
+        },
         config = function()
             require('fzf-lua').setup()
         end

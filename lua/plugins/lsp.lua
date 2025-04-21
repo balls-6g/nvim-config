@@ -57,19 +57,6 @@ return {
                 }
             })
 
-            lsp.rust_analyzer.setup({
-                on_attach = on_attach,
-                capabilities = capabilities,
-                settings = {
-                    ['rust_analyzer'] = {
-                        checOnsave = { command = "clippy" },
-                        procMacro = { enabled = true },
-                        usePlaceHolders = true,
-                        autoFormmat = true,
-                    }
-                }
-            })
-
             lsp.gopls.setup {
                 on_attach = on_attach,
                 capabilities = capabilities,

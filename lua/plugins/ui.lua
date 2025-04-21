@@ -1,14 +1,40 @@
 return {
     {
-	      "nvim-lualine/lualine.nvim",
-        -- enabled = false, -- 跟 tmux 状态栏放一起的时候有点丑
-        event = "VeryLazy",
-	      dependencies = { 'nvim-tree/nvim-web-devicons' },
-	      config = function()
-	          require('lualine').setup({
-		            options = { theme = 'everforest' },
-	          })
-	      end
+        "nvim-lualine/lualine.nvim",
+        url = "https://bgithub.xyz/nvim-lualine/lualine.nvim",
+        event = { "BufReadpost", "BufNewFile" },
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function ()
+            require('lualine').setup {
+                options = {
+                  theme = "auto",
+                  component_separators = '',
+                  section_separators = { left = '', right = '' },
+                },
+                sections = {
+                  lualine_a = { { 'mode', separator = { left = '' }, right_padding = 2 } },
+                  lualine_b = { 'filename', 'branch' },
+                  lualine_c = {
+                    '%=', --[[ add your center components here in place of this comment ]]
+                  },
+                  lualine_x = {},
+                  lualine_y = { 'filetype', 'progress' },
+                  lualine_z = {
+                    { 'location', separator = { right = '' }, left_padding = 2 },
+                  },
+                },
+                inactive_sections = {
+                  lualine_a = { 'filename' },
+                  lualine_b = {},
+                  lualine_c = {},
+                  lualine_x = {},
+                  lualine_y = {},
+                  lualine_z = { 'location' },
+                },
+                tabline = {},
+                extensions = {},
+              }
+        end
     }, -- 状态栏
     {
 	      "nvim-tree/nvim-web-devicons",
@@ -24,20 +50,6 @@ return {
 	          require('nvim-tree').setup()
 	      end,
     }, -- 文件树
-    {
-	      "sphamba/smear-cursor.nvim",
-	      url = "https://bgithub.xyz/sphamba/smear-cursor.nvim",
-        event = "VeryLazy",
-        -- enabled = false,
-	      opts = {
-            cursor_color = "#ff8800",
-            stiffness = 0.3,
-            trailing_stiffness = 0.1,
-            trailing_exponent = 7,
-            hide_target_hack = true,
-            gamma = 1,
-	      },
-    }, -- 顺滑光标
     {
         "akinsho/bufferline.nvim",
         version = "*",
