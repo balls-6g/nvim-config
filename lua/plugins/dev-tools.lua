@@ -269,6 +269,8 @@ return {
     {
         "ibhagwan/fzf-lua",
         url = "https://bgithub.xyz/ibhagwan/fzf-lua",
+        event = { "VeryLazy" },
+        cmd = { "FzfLua" },
         config = function()
             require('fzf-lua').setup()
         end

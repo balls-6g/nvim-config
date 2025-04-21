@@ -1,5 +1,5 @@
 -- 主键为空格
-vim.keymap.mapleader = " "
+vim.g.mapleader = " "
 
 -- -------- 正常模式 -------- --
 -- 正常模式分屏
