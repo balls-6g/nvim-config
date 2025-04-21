@@ -25,3 +25,6 @@ vim.keymap.set("n", "<leader>x", ":bdelete<CR>")
 
 -- 切换是否透明
 vim.keymap.set("n", "<ESC>", ":TransparentToggle<CR>")
+
+-- 保存映射
+vim.keymap.set("n", "<C-s>", ":w<CR>")

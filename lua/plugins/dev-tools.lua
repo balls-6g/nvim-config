@@ -16,7 +16,7 @@ return {
 	      "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPost", "BufNewFile" },
 	      url = "https://bgithub.xyz/nvim-treesitter/nvim-treesitter",
-        ft = { "c", "go", "rust", "lua", "markdown" },
+        ft = { "c", "go", "rust", "lua", "markdown", "ps1" },
         lazy = true,
 	      build = "TSUpdate",
         opts = {
@@ -29,7 +29,7 @@ return {
 	      config = function()
 	          require('nvim-treesitter.configs').setup({
 		            -- 语言 
-		            ensure_installed = { "vim", "lua", "rust", "go", "c" },
+		            ensure_installed = { "vim", "lua", "rust", "go", "c", "powershell" },
 
 		            -- 高亮和缩进
 		            highlight = { enable = true },
