@@ -29,5 +29,12 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.expandtab = true
 
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.swapfile = false
+vim.opt.autoread = true
+vim.bo.autoread = true
+
 -- 代码光晕
 vim.api.nvim_set_hl(0, "Normal", { fg = "#c3c7d1", bg = "#1e1e2e", blend = 10})

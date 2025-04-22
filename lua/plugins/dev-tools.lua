@@ -109,8 +109,6 @@ return {
         keys = {
         -- Top Pickers & Explorer
         { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-        { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
-        { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
         { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
         -- find
@@ -225,13 +223,6 @@ return {
   end,
     },
     {
-        "echasnovski/mini.nvim",
-        url = "https://bgithub.xyz/echasnovski/mini.nvim",
-        version = "*",
-        lazy = true,
-        config = function() end
-    },
-    {
         "numToStr/Comment.nvim",
         lazy = true,
         ft = fts,
@@ -270,7 +261,10 @@ return {
         "ibhagwan/fzf-lua",
         url = "https://bgithub.xyz/ibhagwan/fzf-lua",
         keys = {
-            { "<leader>fz", ":FzfLua<CR>", "use fzf" }
+            { "<leader>fz", ":FzfLua<CR>", "use fzf" },
+            { "<leader>/", ":FzfLua live_grep<CR>", "Live grep" },
+            { "<leader>ff", ":FzfLua files<CR>", "Fzf find files" },
+            { "<leader>,", ":FzfLua buffers<CR>", "Fzf find buffers" }
         },
         config = function()
             require('fzf-lua').setup()

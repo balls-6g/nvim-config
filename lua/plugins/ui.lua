@@ -8,6 +8,7 @@ return {
             require('lualine').setup {
                 options = {
                   theme = "auto",
+                  globalstatus = true,
                   component_separators = '',
                   section_separators = { left = '', right = '' },
                 },
@@ -72,7 +73,24 @@ return {
             }
         },
         config = function ()
-            require("bufferline").setup{}
+            require("bufferline").setup{
+                options = {
+                    always_show_bufferline = false,
+                    diagnostics = 'nvim_lsp',
+                    diagnostics_indiacator = function(count, level, diagnostics_dict, context)
+                        return "(" .. count .. ")"
+                    end,
+                    offsets = {
+                        {
+                            filetype = "NvimTree",
+                            text = "File explorer",
+                            highlight = "Directory",
+                            text_align = "left",
+                            padding = 1,
+                        }
+                    }
+                }
+            }
         end
     },
     {
@@ -147,4 +165,21 @@ return {
             require('transparent').clear_prefix('Snacks')
         end
     },
+    {
+        "ya2s/nvim-cursorline",
+        url ="https://bgithub.xyz/ya2s/nvim-cursorline",
+        ft = { "rust", "go", "markdown", "lua" },
+        opts = {
+                cursorline = {
+                    enabled = true,
+                    number = false,
+                    timeout = 1000,
+                },
+                cursorword = {
+                    enabled = true,
+                    min_lenth = 3,
+                    hl = { underline = true },
+                }
+        }
+    }
 }

@@ -26,7 +26,7 @@ return {
 		                }
 		            }
 	          })
-            vim.cmd.colorscheme('catppuccin')
+            -- vim.cmd.colorscheme('catppuccin')
 	      end
     },
     {
@@ -43,7 +43,7 @@ return {
         event = "VeryLazy",
         config = function ()
             require("everforest").setup()
-            -- vim.cmd.colorscheme('everforest')
+            vim.cmd.colorscheme('everforest')
         end
     }
 }
