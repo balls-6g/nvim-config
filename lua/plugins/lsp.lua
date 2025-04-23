@@ -41,7 +41,7 @@ return {
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
             -- 启用on_attach
-            local on_attach = function(c, b)
+            local on_attach = function(client, bufnr)
                 vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = b })
                 vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = b })
             end
@@ -68,6 +68,11 @@ return {
                         usePlaceHolders = true,
                     }
                 }
+            }
+
+            lsp.pyright.setup {
+                on_attach = on_attach,
+                capabilities = capabilities,
             }
 
             vim.diagnostic.config({

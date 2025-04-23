@@ -43,15 +43,6 @@ return {
         lazy = true,
     },
     {
-	      "nvim-tree/nvim-tree.lua",
-	      url = "https://bgithub.xyz/nvim-tree/nvim-tree.lua",
-	      config = function() 
-	          vim.g.loaded_netrw = 1
-	          vim.g.loaded_netrwPlugin = 1
-	          require('nvim-tree').setup()
-	      end,
-    }, -- 文件树
-    {
         "akinsho/bufferline.nvim",
         version = "*",
         url = "https://bgithub.xyz/akinsho/bufferline.nvim",
@@ -82,7 +73,7 @@ return {
                     end,
                     offsets = {
                         {
-                            filetype = "NvimTree",
+                            filetype = "Neo-Tree",
                             text = "File explorer",
                             highlight = "Directory",
                             text_align = "left",
@@ -110,25 +101,6 @@ return {
             "MunifTanjim/nui.nvim",
             "rcarriga/nvim-notify",
         },
-        opts = {
-            cmdline = {
-                enabled = true,
-                view = "cmdline_popup", -- 悬浮式输入框
-                format = {
-                    cmdline = { icon = "󰘳 " }, -- 自定义命令图标
-                    search_down = { icon = " " }, -- 搜索图标
-                }
-            },
-            messages = {
-                enabled = true, -- 美化消息提示
-                view = "mini",  -- 精简消息样式
-            },
-            lsp = {
-                override = {
-                    ["vim.lsp.util.convert_input_to_markdown_lines"] = true, -- 支持 Markdown
-                }
-            }
-        },
         config = function ()
             require("noice").setup({
                 lsp = {
@@ -138,11 +110,25 @@ return {
                         ["cmp.entry.get_documentation"] = true,
                     },
                 },
+                cmdline = {
+                    enabled = true,
+                    view = "cmdline_popup", -- 悬浮式输入框
+                    format = {
+                        cmdline = { icon = "󰘳 " }, -- 自定义命令图标
+                        search_down = { icon = " " }, -- 搜索图标
+                    }
+                },
+                messages = {
+                    enabled = true, -- 美化消息提示
+                    view = "mini",  -- 精简消息样式
+                },
+
 
                 presets = {
                     long_message_to_split = true,
                     lsp_doc_border = false,
                     inc_rename = false,
+                    bottom_search = true,
                 }
             })
         end

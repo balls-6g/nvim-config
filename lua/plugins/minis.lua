@@ -14,6 +14,7 @@ return {
             require("mini.notify").setup({})
             require("mini.surround").setup({})
             require("mini.fuzzy").setup({})
+            require("mini.sessions").setup({})
         end
     },
 }

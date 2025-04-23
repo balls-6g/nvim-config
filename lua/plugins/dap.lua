@@ -38,7 +38,7 @@ return {
     },
     {
         "nvim-lua/plenary.nvim",
-        lazy=  true,
+        lazy =  true,
         url = "https://bgithub.xyz/nvim-lua/plenary.nvim",
     },
     {

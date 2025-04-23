@@ -6,9 +6,6 @@ vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>tv", "<C-w>v")
 vim.keymap.set("n", "<leader>tw", "<C-w>s")
 
--- 打开/关闭文件树
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
-
 -- 屏幕切换
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")

@@ -2,17 +2,6 @@ local fts = { "rust", "lua", "go", "markdown" }
 
 return {
     {
-        "nvzone/volt",
-        url = "https://bgithub.xyz/nvzone/volt",
-        lazy = true,
-    },
-    {
-        "nvzone/minty",
-        url = "https://bgithub.xyz/nvzone/minty",
-        cmd = { "Shades", "Huefy" },
-        lazy = true,
-    },
-    {
 	      "nvim-treesitter/nvim-treesitter",
         event = { "BufReadPost", "BufNewFile" },
 	      url = "https://bgithub.xyz/nvim-treesitter/nvim-treesitter",
@@ -104,13 +93,14 @@ return {
                     },
                   
             },
-            explorer = { enabled = false, }
+            explorer = { enabled = true, }
         },
         keys = {
         -- Top Pickers & Explorer
         { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
         { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
+        { "<leader>e", function() Snacks.explorer() end, desc = "Neotree explorer" },
         -- find
         { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
         { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
@@ -268,6 +258,26 @@ return {
         },
         config = function()
             require('fzf-lua').setup()
+        end
+    },
+    {
+        "stevearc/conform.nvim",
+        url = "https://bgithub.xyz/stevearc/conform.nvim",
+        ft = { "rust", "go", "lua", "python" },
+        config = function ()
+            local cf = require('conform')
+            cf.setup({
+                formatters_by_ft = {
+                    rust = { "rustfmt" },
+                    go = { "gofumpt" }
+                }
+            })
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                pattern = "*",
+                callback = function (args)
+                    cf.format({ bufnr = args.buf })
+                end
+            })
         end
     }
 }
